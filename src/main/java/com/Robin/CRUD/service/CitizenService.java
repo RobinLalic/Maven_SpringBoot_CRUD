@@ -1,7 +1,9 @@
 package com.Robin.CRUD.service;
 
 import com.Robin.CRUD.model.Citizen;
+import com.Robin.CRUD.model.Passport;
 import com.Robin.CRUD.repository.CitizenRepository;
+import com.Robin.CRUD.repository.PassportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.Objects;
 public class CitizenService {
 
     private final CitizenRepository citizenRepository;
+    private final PassportRepository passportRepository;
 
     public Citizen saveCitizen(Citizen citizen)
     {
@@ -45,6 +48,10 @@ public class CitizenService {
 
         return citizenRepository.save(newCitizen);
 
+    }
+
+    public Citizen addPassportToCitizen(Long citizenId, Long passportId){
+        Citizen citizen = citizenRepository.findById()
     }
 
 
