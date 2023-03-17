@@ -51,7 +51,18 @@ public class CitizenService {
     }
 
     public Citizen addPassportToCitizen(Long citizenId, Long passportId){
-        Citizen citizen = citizenRepository.findById()
+        Citizen citizen = citizenRepository.findById(citizenId).get();
+        Passport passport = passportRepository.findById(passportId).get();
+        citizen.addPassport(passport);
+        return citizenRepository.save(citizen);
+
+    }
+
+    public Citizen removePassportFromCitizen(Long citizenId, Long passportId){
+        Citizen citizen = citizenRepository.findById(citizenId).get();
+        Passport passport = passportRepository.findById(passportId).get();
+        citizen.removePassport(passport);
+        return citizenRepository.save(citizen);
     }
 
 
