@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.Robin.CRUD.service.CitizenService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/citizens")
 @RequiredArgsConstructor
@@ -15,12 +17,20 @@ public class CitizenController {
     private final CitizenService citizenService;
 
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
+    @PostMapping("/create")
     public Citizen addCitizen(@RequestBody Citizen citizen)
     {
         return citizenService.saveCitizen(citizen);
     }
+
+    @GetMapping("/getById/{id}")
+    public Citizen getCitizenById(@PathVariable Long id) { return citizenService.getCitizenById(id); }
+
+    @GetMapping("/getAll")
+    public List<Citizen> getAllCitizens() { return citizenService.getAllCitizens(); }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable Long id) { citizenService.removeCitizen(id); }
+
 
 }
