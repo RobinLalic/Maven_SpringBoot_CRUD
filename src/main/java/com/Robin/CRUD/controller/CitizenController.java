@@ -32,5 +32,10 @@ public class CitizenController {
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) { citizenService.removeCitizen(id); }
 
+    @PutMapping("/update/{id}")
+    public Citizen updateCitizen(@RequestBody Citizen citizen, @PathVariable Long id){
+        return citizenService.updateCitizen(citizen, id);
+    }
+
 
 }
