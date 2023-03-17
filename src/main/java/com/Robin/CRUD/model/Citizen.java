@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @NoArgsConstructor
@@ -22,8 +25,19 @@ public class Citizen {
     @Column(name="last_name")
     private String lastName;
 
-    /*@Column(name="passport_id")
-    private int passportId;
+    @OneToMany(mappedBy = "citizen")
+    private List<Passport> passports = new ArrayList<>();
+
+    public void addPassport(Passport passport) {
+        if(!passports.contains(passport))
+            passports.add(passport);
+    }
+
+    public void removePassport(Passport passport) { passports.remove(passport); }
+
+
+
+    /*
     @Column(name="vehicle_id")
     private int vehicleId;
     @Column(name="phone_id")
