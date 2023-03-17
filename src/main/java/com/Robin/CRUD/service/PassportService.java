@@ -1,6 +1,5 @@
 package com.Robin.CRUD.service;
 
-import com.Robin.CRUD.model.Citizen;
 import com.Robin.CRUD.model.Passport;
 import com.Robin.CRUD.repository.PassportRepository;
 import lombok.RequiredArgsConstructor;

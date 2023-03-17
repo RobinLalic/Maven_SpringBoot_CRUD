@@ -2,8 +2,6 @@ package com.Robin.CRUD.controller;
 
 import com.Robin.CRUD.model.Citizen;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.Robin.CRUD.service.CitizenService;
 
@@ -37,5 +35,14 @@ public class CitizenController {
         return citizenService.updateCitizen(citizen, id);
     }
 
+    @PutMapping("/{citizenId}/addPassport/{passportId}")
+    Citizen addPassportToCitizen(@PathVariable Long citizenId, @PathVariable Long passportId){
+        return citizenService.addPassportToCitizen(citizenId, passportId);
+    }
+
+    @DeleteMapping("/{citizenId}/removePassport/{passportId}")
+    Citizen removePassportFromCitizen(@PathVariable Long citizenId, @PathVariable Long passportId){
+        return citizenService.removePassportFromCitizen(citizenId, passportId);
+    }
 
 }
