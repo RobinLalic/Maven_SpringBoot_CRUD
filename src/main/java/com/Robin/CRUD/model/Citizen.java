@@ -36,10 +36,19 @@ public class Citizen {
     public void removePassport(Passport passport) { passports.remove(passport); }
 
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "citizen_id", referencedColumnName = "id")
+    private List<Vehicle> vehicles;
+
+    public void addVehicle(Vehicle vehicle){
+        if(!vehicles.contains(vehicle))
+            vehicles.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle){ vehicles.remove(vehicle); }
+
 
     /*
-    @Column(name="vehicle_id")
-    private int vehicleId;
     @Column(name="phone_id")
     private int phoneId;
     @Column(name="place_of_employment")
