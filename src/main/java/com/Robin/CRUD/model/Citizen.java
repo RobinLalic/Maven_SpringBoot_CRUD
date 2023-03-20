@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,8 +24,9 @@ public class Citizen {
     @Column(name="last_name")
     private String lastName;
 
-    @OneToMany(mappedBy = "citizen")
-    private List<Passport> passports = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "citizen_id", referencedColumnName = "id")
+    private List<Passport> passports;
 
     public void addPassport(Passport passport) {
         if(!passports.contains(passport))
