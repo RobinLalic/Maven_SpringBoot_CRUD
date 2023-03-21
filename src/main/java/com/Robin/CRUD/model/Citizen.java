@@ -26,7 +26,7 @@ public class Citizen {
     @Column(name="place_of_employment")
     private String placeOfEmployment;
     @Column(name="place_of_residence")
-    private String placeOfResidence
+    private String placeOfResidence;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "citizen_id", referencedColumnName = "id")
