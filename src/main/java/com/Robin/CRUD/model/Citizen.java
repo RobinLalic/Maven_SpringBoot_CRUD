@@ -48,9 +48,19 @@ public class Citizen {
     public void removeVehicle(Vehicle vehicle){ vehicles.remove(vehicle); }
 
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "citizen_id", referencedColumnName = "id")
+    private List<Phone> phones;
+
+    public void addPhone(Phone phone){
+        if(!phones.contains(phone))
+            phones.add(phone);
+    }
+
+    public void removePhone(Phone phone){ phones.remove(phone); }
+
+
     /*
-    @Column(name="phone_id")
-    private int phoneId;
     @Column(name="place_of_employment")
     private String placeOfEmployment;
     @Column(name="place_of_residence")

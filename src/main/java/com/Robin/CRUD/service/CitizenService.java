@@ -2,9 +2,11 @@ package com.Robin.CRUD.service;
 
 import com.Robin.CRUD.model.Citizen;
 import com.Robin.CRUD.model.Passport;
+import com.Robin.CRUD.model.Phone;
 import com.Robin.CRUD.model.Vehicle;
 import com.Robin.CRUD.repository.CitizenRepository;
 import com.Robin.CRUD.repository.PassportRepository;
+import com.Robin.CRUD.repository.PhoneRepository;
 import com.Robin.CRUD.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ public class CitizenService {
     private final PassportRepository passportRepository;
 
     private final VehicleRepository vehicleRepository;
+
+    private final PhoneRepository phoneRepository;
 
     public Citizen saveCitizen(Citizen citizen)
     {
@@ -82,6 +86,24 @@ public class CitizenService {
         citizen.removeVehicle(vehicle);
         return citizenRepository.save(citizen);
     }
+
+    public Citizen addPhoneToCitizen(Long citizenId, Long phoneId){
+        Citizen citizen = citizenRepository.findById(citizenId).get();
+        Phone phone = phoneRepository.findById(phoneId).get();
+        citizen.addPhone(phone);
+        return citizenRepository.save(citizen);
+    }
+
+    public Citizen removePhoneFromCitizen(Long citizenId, Long phoneId){
+        Citizen citizen = citizenRepository.findById(citizenId).get();
+        Phone phone = phoneRepository.findById(phoneId).get();
+        citizen.removePhone(phone);
+        return citizenRepository.save(citizen);
+    }
+
+
+
+
 
 
 }

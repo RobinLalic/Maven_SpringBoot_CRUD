@@ -55,4 +55,14 @@ public class CitizenController {
         return citizenService.removeVehicleFromCitizen(citizenId, vehicleId);
     }
 
+    @PutMapping("/{citizenId}/addPhone/{phoneId}")
+    Citizen addPhoneToCitizen(@PathVariable Long citizenId, @PathVariable Long phoneId){
+        return citizenService.addPhoneToCitizen(citizenId, phoneId);
+    }
+
+    @DeleteMapping("/{citizenId}/removePhone/{phoneId}")
+    Citizen removePhoneFromCitizen(@PathVariable Long citizenId, @PathVariable Long phoneId){
+        return citizenService.removePhoneFromCitizen(citizenId, phoneId);
+    }
+
 }
