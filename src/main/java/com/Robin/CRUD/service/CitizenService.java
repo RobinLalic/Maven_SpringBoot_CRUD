@@ -54,6 +54,20 @@ public class CitizenService {
                     citizen.getLastName());
         }
 
+        if (Objects.nonNull(citizen.getPlaceOfEmployment())
+                && !"".equalsIgnoreCase(
+                citizen.getPlaceOfEmployment())) {
+            newCitizen.setPlaceOfEmployment(
+                    citizen.getPlaceOfEmployment());
+        }
+
+        if (Objects.nonNull(citizen.getPlaceOfResidence())
+                && !"".equalsIgnoreCase(
+                citizen.getPlaceOfResidence())) {
+            newCitizen.setPlaceOfResidence(
+                    citizen.getPlaceOfResidence());
+        }
+
         return citizenRepository.save(newCitizen);
 
     }

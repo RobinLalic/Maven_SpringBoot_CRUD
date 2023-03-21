@@ -23,6 +23,10 @@ public class Citizen {
     private String firstName;
     @Column(name="last_name")
     private String lastName;
+    @Column(name="place_of_employment")
+    private String placeOfEmployment;
+    @Column(name="place_of_residence")
+    private String placeOfResidence
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "citizen_id", referencedColumnName = "id")
@@ -58,14 +62,5 @@ public class Citizen {
     }
 
     public void removePhone(Phone phone){ phones.remove(phone); }
-
-
-    /*
-    @Column(name="place_of_employment")
-    private String placeOfEmployment;
-    @Column(name="place_of_residence")
-    private String placeOfResidence;*/
-
-
 
 }
