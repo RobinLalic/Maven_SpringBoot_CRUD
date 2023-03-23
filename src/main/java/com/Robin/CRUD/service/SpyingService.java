@@ -5,6 +5,7 @@ import com.Robin.CRUD.repository.CitizenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,5 +22,13 @@ public class SpyingService {
 
     public List<Citizen> getCitizenByCityAndPlaceOfEmployment(String city, String placeOfEmployment) {
         return citizenRepository.findByCityAndPlaceOfEmployment(city, placeOfEmployment);
+    }
+
+    public List<Citizen> getCitizenByPassportsNationality(String nationality){
+        return citizenRepository.findByPassportsNationality(nationality);
+    }
+
+    public List<Citizen> getCitizenByPassportExpiryDateAfter(Date expiryDate){
+        return citizenRepository.findByPassportsExpiryDateAfter(expiryDate);
     }
 }
