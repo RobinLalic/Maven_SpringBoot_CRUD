@@ -25,6 +25,10 @@ public class Citizen {
     private String lastName;
     @Column(name="place_of_employment")
     private String placeOfEmployment;
+    @Column(name="city")
+    private String city;
+    @Column(name="zip_code")
+    private String zipCode;
     @Column(name="place_of_residence")
     private String placeOfResidence;
 

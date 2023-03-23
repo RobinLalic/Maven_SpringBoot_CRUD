@@ -60,6 +60,18 @@ public class CitizenService {
             newCitizen.setPlaceOfEmployment(
                     citizen.getPlaceOfEmployment());
         }
+        if (Objects.nonNull(citizen.getCity())
+                && !"".equalsIgnoreCase(
+                citizen.getCity())) {
+            newCitizen.setCity(
+                    citizen.getCity());
+        }
+        if (Objects.nonNull(citizen.getZipCode())
+                && !"".equalsIgnoreCase(
+                citizen.getZipCode())) {
+            newCitizen.setZipCode(
+                    citizen.getZipCode());
+        }
 
         if (Objects.nonNull(citizen.getPlaceOfResidence())
                 && !"".equalsIgnoreCase(
